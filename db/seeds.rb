@@ -7,6 +7,7 @@ require 'faker'
     body:  Faker::Lorem.paragraph
     )
 end
+Post.where(title: "Joel", body: "Is new to this").first_or_create
 posts = Post.all
 
 #Create Comments
