@@ -35,7 +35,7 @@ class ApplicationPolicy
   end
 
   def scope
-    record.class)
+    record.class
   end
 
   class Scope
