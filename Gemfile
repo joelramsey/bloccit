@@ -25,6 +25,8 @@ gem 'faker'
 
 gem 'devise'
 
+gem 'pundit'
+
 gem 'pry-rails', :group => :development
 
 gem 'bootstrap-sass'
