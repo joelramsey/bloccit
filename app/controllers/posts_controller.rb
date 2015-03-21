@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = PostPolicy::Scope.new(current_user, @topic.posts).resolve
   end
 
   def new
