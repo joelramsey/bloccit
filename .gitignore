@@ -18,3 +18,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+/app/controllers/summaries_controller.rb                                                                                     
+/app/helpers/summaries_helper.rb                                                                                             
+/app/models/summary.rb                                                                                                       
+/app/views/summaries/                                                                                                        
+/db/migrate/20150321031432_add_summary_to_posts.rb  
