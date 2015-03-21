@@ -30,12 +30,21 @@ users = User.all
  
  # The `save` method then saves this User to the database.
 
+#Create Summaries
+50.times do
+   Summary.create!(
+     description: Faker::Lorem.paragraph
+     )
+ end
+ summaries = Summary.all
+
 
 #Create Posts
 50.times do
   Post.create!(
     user: users.sample,
     topic: topics.sample,
+    summary: summaries.sample,
     title: Faker::Lorem.sentence,
     body:  Faker::Lorem.paragraph
     )
@@ -50,6 +59,7 @@ posts = Post.all
     body: Faker::Lorem.paragraph
     )
 end
+comments = Comment.all
 
 # Create an admin user
  admin = User.new(
@@ -84,3 +94,4 @@ puts "Seed finished"
 puts "#{User.count} users creates"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Summary.count} summaries created"
