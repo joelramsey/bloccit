@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321031432) do
+ActiveRecord::Schema.define(version: 20150324003139) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150321031432) do
     t.integer  "summary_id"
   end
 
+  add_index "posts", ["summary_id"], name: "index_posts_on_summary_id"
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150321031432) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "avatar"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

@@ -29,6 +29,12 @@ gem 'redcarpet'
 
 gem 'pundit'
 
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'fog'
+
 gem 'pry-rails', :group => :development
 
 gem 'bootstrap-sass'
