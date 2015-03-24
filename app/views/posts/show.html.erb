@@ -2,6 +2,11 @@
 
 <div class="row">
   <div class="col-md-8">
+    <% if @post.image? %>
+      <div class="col-md-4">
+        <%= image_tag(@post.image.large.url) %>      
+      </div>
+    <% end %>
     <small>
        <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
        submitted <%= time_ago_in_words(@post.created_at) %> ago by
