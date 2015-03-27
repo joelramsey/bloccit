@@ -20,7 +20,9 @@
     <% end %>
   </div>
   <div class="col-md-8">
-    <%= link_to "New Comment", new_topic_post_comment_path(@topic, @post), class: 'btn btn-success' %>
+    <% if policy(@comment).create? %>
+      <%= link_to "New Comment", new_topic_post_comment_path(@topic, @post), class: 'btn btn-success' %>
+    <% end %>
   </div>
 </div>
 <br>

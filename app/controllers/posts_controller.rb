@@ -6,6 +6,8 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @comments = @post.comments
     @comment = Comment.new
+    authorize @post
+    
     
   end
 
@@ -14,6 +16,7 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
     authorize @post
+    
   end
   
   def create
@@ -21,6 +24,7 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = current_user.posts.build(post_params)
     authorize @post
+    
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to [@topic, @post]
@@ -35,6 +39,7 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     authorize @post
+    
   end
   
   def update
@@ -42,6 +47,7 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     authorize @post
+    
     if @post.update_attributes(post_params)
       flash[:notice] = "Post was updated."
       redirect_to [@topic, @post]

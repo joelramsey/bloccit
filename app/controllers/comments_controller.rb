@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find(params[:post_id])
     @comment = Comment.new
-   
+    authorize @comment
     
   end
 
@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(comment_params)
     @comment.post = @post
-   
+    authorize @comment
 
     if @comment.save
       flash[:notice] = "Comment was saved."
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    
+    authorize @comment
   end
   
   def comment_params
