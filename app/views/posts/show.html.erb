@@ -16,7 +16,14 @@
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
-      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+      <%= link_to "Edit Post", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
   </div>
+  <div class="col-md-8">
+    <%= link_to "New Comment", new_topic_post_comment_path(@topic, @post), class: 'btn btn-success' %>
+  </div>
+</div>
+<br>
+<div class="col-md-8">
+  <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post } %>
 </div>
