@@ -23,6 +23,7 @@ class PostsController < ApplicationController
    
     @topic = Topic.find(params[:topic_id])
     @post = current_user.posts.build(post_params)
+    @post.topic = @topic
     authorize @post
     
     if @post.save
@@ -43,7 +44,6 @@ class PostsController < ApplicationController
   end
   
   def update
-   
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     authorize @post
@@ -56,6 +56,21 @@ class PostsController < ApplicationController
       render :edit
      end
   end
+  
+   def destroy
+     @topic = Topic.find(params[:topic_id])
+     @post = Post.find(params[:id])
+     title = @post.title
+     authorize @post
+ 
+     if @post.destroy
+       flash[:notice] = "\"#{title}\" was deleted successfully."
+       redirect_to @topic
+     else
+       flash[:error] = "There was an error deleting the post."
+       render :show
+     end
+   end
   
  private
   

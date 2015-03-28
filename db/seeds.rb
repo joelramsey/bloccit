@@ -13,7 +13,7 @@ end
 users = User.all
 
  # Create Topics
- 15.times do
+ 1.times do
    Topic.create!(
      name:         Faker::Lorem.sentence,
      description:  Faker::Lorem.paragraph
@@ -82,6 +82,7 @@ commets = Comment.all
  member.save! 
 
 puts "Seed finished"
-puts "#{User.count} users creates"
+puts "#{Topic.count} topics created"
+puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
