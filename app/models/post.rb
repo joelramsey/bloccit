@@ -11,8 +11,6 @@ class Post < ActiveRecord::Base
   validates :user, presence: true
   validates :topic, presence: true
   
-  after_create :create_vote
-  
   mount_uploader :image, ImageUploader
   
      
@@ -41,7 +39,11 @@ class Post < ActiveRecord::Base
      new_rank = points + age_in_days
  
      update_attribute(:rank, new_rank)
-   end  
+   end
+  
+   def create_vote
+    user.votes.create(value: 1, post: self)
+   end
 
   private
   def render_as_markdown(markdown)
@@ -51,8 +53,6 @@ class Post < ActiveRecord::Base
     (redcarpet.render markdown).html_safe
   end
   
-  def create_vote
-    user.votes.create(value: 1, post: self)
-  end
+  
 
 end
