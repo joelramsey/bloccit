@@ -11,4 +11,3 @@ class CommentPolicy < PostPolicy
     user.present? && (record.user == user || user.admin? || user.moderator?)
   end
 end
-

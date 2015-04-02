@@ -13,7 +13,7 @@ end
 users = User.all
 
  # Create Topics
- 1.times do
+ 10.times do
    Topic.create!(
      name:         Faker::Lorem.sentence,
      description:  Faker::Lorem.paragraph
@@ -60,7 +60,7 @@ commets = Comment.all
 # Create an admin user
  admin = User.new(
    name:     'Admin User',
-   email:    'admin@example.com',
+   email:    'joel.d.ramsey@gmail.com',
    password: 'helloworld',
    role:     'admin'
  )
@@ -85,6 +85,7 @@ commets = Comment.all
  )
  member.skip_confirmation!
  member.save! 
+
 
 puts "Seed finished"
 puts "#{Topic.count} topics created"
