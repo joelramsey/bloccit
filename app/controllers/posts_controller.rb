@@ -5,6 +5,7 @@ class PostsController < ApplicationController
    @post = Post.find(params[:id])
    @comments = @post.comments.paginate(page: params[:page], per_page: 10)
    authorize @post
+   authorize @topic 
   end
 
   def new
