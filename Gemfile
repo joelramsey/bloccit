@@ -52,6 +52,9 @@ gem 'figaro', '1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :test do
+  gem 'capybara'
+end
 
 group :production do
   gem 'pg'
