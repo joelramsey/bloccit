@@ -25,6 +25,8 @@ gem 'faker'
 
 gem 'devise'
 
+gem 'newrelic_rpm'
+
 gem 'redcarpet'
 
 gem 'pundit'
@@ -51,7 +53,7 @@ gem 'figaro', '1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+  
 group :test do
   gem 'capybara'
 end
@@ -59,6 +61,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'puma'
  end
  
 group :development do
