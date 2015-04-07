@@ -56,6 +56,7 @@ gem 'figaro', '1.0'
   
 group :test do
   gem 'capybara'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :production do
