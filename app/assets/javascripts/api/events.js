@@ -4,7 +4,7 @@ var blocmetrics = {
       name: "page hit"
       };
     var _bm_request = new XMLHttpRequest();
-    _bm_request.open("POST", "https://secure-dusk-3120.herokuapp.com/api/events", true);
+    _bm_request.open("POST", "https://joelramsey-blocmetrics.herokuapp.com/api/events", true);
     _bm_request.setRequestHeader('Content-Type', 'application/json');
     // #5
     _bm_request.onreadystatechange = function() {
